@@ -4,19 +4,19 @@
         xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.huaweiair</groupId>
-    <artifactId>huaweiairorderservice</artifactId>
+    <artifactId>order</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
 
-    <name>huaweiairorderservice</name>
+    <name>order</name>
     <url>http://maven.apache.org</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <cse.version>2.1.4</cse.version>
+        <cse.version>2.2.7</cse.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <demo.main>com.huaweiair.pojo.SpringPojoServer</demo.main>
+        <demo.main>com.huaweiair.order.OrderApplication</demo.main>
     </properties>
 
     <dependencyManagement>
@@ -74,7 +74,10 @@
             <groupId>com.huawei.paas.cse</groupId>
             <artifactId>cse-handler-tracing</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>com.huawei.paas.cse</groupId>
+            <artifactId>cse-solution-service-engine</artifactId>
+        </dependency>
         <!-- handlers -->
         <dependency>
             <groupId>io.servicecomb</groupId>
@@ -147,6 +150,29 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.8</version>
+                <executions>
+                    <execution>
+                        <id>make-vm-zip</id>
+                        <phase>package</phase>
+                        <configuration>
+                        <target>
+                            <zip destfile="target/${build.finalName}.zip">
+                            <zipfileset dir="target/lib" prefix="lib" />
+                            <zipfileset dir="target" includes="*.jar" />
+                            <zipfileset dir="." includes="start.sh" />
+                            </zip>
+                        </target>
+                        </configuration>
+                            <goals>
+                                <goal>run</goal>
+                            </goals>
+                    </execution>
+                </executions>
+            </plugin>
+						  
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>

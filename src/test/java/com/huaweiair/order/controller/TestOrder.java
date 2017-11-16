@@ -66,7 +66,7 @@ public class TestOrder {
         Boolean expactReturnValue = false; // You should put the expect Boolean type value here.
 
         // You should put the parameter here, in such footprint: orderImpl.modifyOrder(String orderId, Integer action)
-        Boolean returnValue = orderImpl.modifyOrder(null, null);
+        Boolean returnValue = orderImpl.modifyOrder(null, 1);
 
         assertEquals(expactReturnValue, returnValue);
     }
