@@ -14,12 +14,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import io.servicecomb.provider.pojo.RpcSchema;
+import io.servicecomb.provider.rest.common.RestSchema;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.CsePojoCodegen", date = "2017-11-04T17:20:51.183+08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.CseSpringoCodegen", date = "2017-11-04T17:20:51.183+08:00")
 
-@RpcSchema(schemaId = "order")
-@RequestMapping(path = "/huaweiair/v1", produces = MediaType.APPLICATION_JSON)
+@RestSchema(schemaId = "order")
+@RequestMapping(path = "/huaweiair/v1")
 public class OrderImpl {
 
     @Autowired
@@ -27,8 +27,7 @@ public class OrderImpl {
 
 
     @RequestMapping(value = "/orders",
-    		consumes = { "application/json" },
-            produces = { "application/json" }, 
+//    		consumes = { "application/json" },
             method = RequestMethod.POST)
     public Boolean createOrders(@RequestBody FlightFlag order) {
 
@@ -36,8 +35,6 @@ public class OrderImpl {
     }
 
     @RequestMapping(value = "/orders/{orderId}",
-    		consumes = { "application/json" },
-            produces = { "application/json" }, 
             method = RequestMethod.DELETE)
     public Boolean deleteOrder(@PathVariable(value="orderId", required=true) String orderId) {
 
@@ -53,8 +50,6 @@ public class OrderImpl {
     }
 
     @RequestMapping(value = "/orders/{orderId}",
-    		consumes = { "application/json" },
-            produces = { "application/json" }, 
             method = RequestMethod.PUT)
     public Boolean modifyOrder(@PathVariable(value="orderId", required=true) String orderId, @RequestParam(value="action", required=true) int action) {
 
