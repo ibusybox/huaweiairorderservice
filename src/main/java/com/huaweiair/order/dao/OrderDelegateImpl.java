@@ -63,7 +63,7 @@ public class OrderDelegateImpl{
           returnFlightOrder.setUserId(order.getUserId());
           returnFlightOrder.setOrderId(UUID.randomUUID().toString());
           returnFlightOrder.setFlightId(order.getRetFlightId());
-          returnFlightOrder.setName(order.getToAirPortName() + "-" + order.getFromAirPortName());
+          returnFlightOrder.setName("[" + customName + "]" + order.getToAirPortName() + "-" + order.getFromAirPortName());
           returnFlightOrder.setScheduledDepartureTime(order.getRetScheduledDepartureTime());
           returnFlightOrder.setScheduledArrivalTime(order.getRetScheduledArrivalTime());
           returnFlightOrder.setFlightClass(order.getRetFlightClass());
