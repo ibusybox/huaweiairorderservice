@@ -52,7 +52,7 @@ under the License.
    | Default: ${user.home}/.m2/repository
   <localRepository>/path/to/local/repo</localRepository>
   -->
-
+<localRepository>E:/repository/servicecomb</localRepository>
   <!-- interactiveMode
    | This will determine whether maven prompts you when it needs input. If set to false,
    | maven will use a sensible default value, perhaps based on some other setting, for
@@ -159,9 +159,9 @@ under the License.
      -->
     <mirror>
       <id>mirrorId</id>
-      <mirrorOf>central</mirrorOf>
+      <mirrorOf>*</mirrorOf>
       <name>Mirror of central repository.</name>
-      <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+      <url>http://maven.weathermap.site/nexus/content/groups/public</url>
     </mirror>
  </mirrors>
 
@@ -251,7 +251,7 @@ under the License.
       </properties>
     </profile>
     -->
-	<profile>
+	<!--<profile>
 		<id>cse-profile</id>
 		<repositories>
 			<repository>
@@ -260,11 +260,9 @@ under the License.
 				<url>http://117.78.31.114:32700/nexus/content/repositories/cse</url>
 			</repository>
 		</repositories>
-	</profile>
+	</profile>-->
   </profiles>
-  <activeProfiles>
-	<activeProfile>cse-profile</activeProfile>
-  </activeProfiles>
+  
   <!-- activeProfiles
    | List of profiles that are active for all builds.
    |
