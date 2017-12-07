@@ -160,8 +160,8 @@ under the License.
     <mirror>
       <id>mirrorId</id>
       <mirrorOf>*</mirrorOf>
-      <name>Mirror of central repository.</name>
-      <url>http://maven.weathermap.site/nexus/content/groups/public</url>
+      <name>Mirror of Huawei CSE.</name>
+      <url>http://maven.huaweicse.com/nexus/content/groups/public</url>
     </mirror>
  </mirrors>
 
